@@ -1,18 +1,20 @@
 import { connect } from 'react-redux'
 import Calendar from '../components/Calendar'
-import { selectAddingEvent } from '../modules/calendar'
+import { selectModalIsOpen, toggleModal } from '../modules/calendar'
 
 const mapStateToProps = (state, ownProps) => {
-  const addingEvent = selectAddingEvent(state)
-  console.log(state)
-  console.log(addingEvent)
+  const open = selectModalIsOpen(state)
   return {
-    addingEvent
+    open
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    toggleModal: () => {
+      dispatch(toggleModal())
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calendar)

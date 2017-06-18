@@ -1,16 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Calendar.scss'
-import AddEventModal from '../containers/AddEventModalContainer'
+import EventModal from '../containers/EventModalContainer'
 import SingleRow from '../components/SingleRow'
 
-const Calendar = ({ addingEvent }) => {
+const Calendar = ({ open, toggleModal }) => {
   let rows = []
   for (let i = 0; i < 5; i++) {
-   rows.push( <SingleRow key={i} row={i*7} /> )
+   rows.push(<SingleRow key={i} row={i*7} />)
   }
   return (
     <div className='Calendar'>
-      {addingEvent && <AddEventModal />}
+      <EventModal open={open} />
       June 2017
       <table className='Calendar__Table'>
         <thead>
@@ -24,12 +25,16 @@ const Calendar = ({ addingEvent }) => {
             <th>Saturday</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody onClick={toggleModal}>
           {rows}
         </tbody>
       </table>
     </div>
   )
+}
+
+Calendar.propTypes = {
+  addingEvent: PropTypes.bool
 }
 
 export default Calendar

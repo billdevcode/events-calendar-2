@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Sidebar.scss'
-import Event from '../components/Event'
+import EventType from '../components/EventType'
 
 const Sidebar = ({ eventTypes }) => {
   return (
     <div className='Sidebar'>
       {eventTypes.map( (event, index) => {
         return (
-          <Event key={index+1} name={event.name} color={event.color} />
+          <EventType key={index+1} type={event.type} color={event.color} />
         )
       })}
       <button>
@@ -15,6 +16,10 @@ const Sidebar = ({ eventTypes }) => {
       </button>
     </div>
   )
+}
+
+Sidebar.propTypes = {
+  eventTypes: PropTypes.array
 }
 
 export default Sidebar

@@ -1,0 +1,15 @@
+.EventModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border: 1px solid #ebebeb;
+  background-color: white;
+  color: #999;
+}
+
+.EventModal--form {
+  display: flex;
+  flex-direction: column;
+}

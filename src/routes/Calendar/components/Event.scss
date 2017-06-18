@@ -1,3 +1,12 @@
-.Event--color {
-  border: 2px solid;
+.Event {
+  border-left: 5px solid;
+  background-color: ghostwhite;
+}
+
+.Event--name {
+  font-size: 12px;
+}
+
+.Event--time {
+  font-size: 9px;
 }

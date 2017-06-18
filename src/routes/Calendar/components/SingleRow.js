@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SingleDay from '../containers/SingleDayContainer'
 
 const SingleRow = ({ row }) => {
@@ -11,6 +12,10 @@ const SingleRow = ({ row }) => {
       {days}
     </tr>
   )
+}
+
+SingleRow.propTypes = {
+  row: PropTypes.number
 }
 
 export default SingleRow
