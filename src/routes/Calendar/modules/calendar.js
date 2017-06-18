@@ -1,6 +1,8 @@
 import { handleActions, createAction } from 'redux-actions'
 
 // NOTE for simplicity sake, we'll use these sample data
+// and hard code examples to show code behavior
+
 import { eventTypes, eventsOn17 } from 'sampleData'
 
 // ------------------------------------
@@ -61,13 +63,13 @@ export const calendarReducer = handleActions({
  },
  [ADD_NEW_EVENT]: (state, action) => {
   const { payload } = action
-  const currentEvents = state.june['18']
-  const newEvents = currentEvents.slice().concat(payload)
+  const { date } = payload
+  const randomDate = Math.floor(Math.random() * 31 + 1)
   return {
     ...state,
     june: {
       ...state.june,
-      ['18']: [...state.june['18'], payload]
+      [date ? date : randomDate]: [...state.june[date ? date : randomDate] || [], payload]
     }
   }
  },
@@ -80,8 +82,7 @@ export const calendarReducer = handleActions({
    eventTypes,
    openModal: false,
    june: {
-     '17': eventsOn17,
-     '18': []
+     '17': eventsOn17
    }
 })
 

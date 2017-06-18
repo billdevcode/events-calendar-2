@@ -26,7 +26,7 @@ const EventModal = ({ open, onClose, addEvent, handleSubmit, cancel }) => {
           </div>
           <div>
             <label htmlFor="date">Date</label>
-            <Field name="date" component="input" type="text" />
+            <Field name="date" component="input" type="number" min='1' max='31' />
           </div>
           <div>
             <label htmlFor="hour">Hour</label>
