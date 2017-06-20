@@ -5,15 +5,15 @@ import './EventType.scss'
 const EventType = ({ type, color }) => {
   return (
     <div className='EventType'>
-      <span className='EventType--color' style={{ color: color }}/>
-        {type}
+      <span className='EventType--color' style={{ color: color }} />
+      {type}
       <input type='checkbox' defaultChecked />
     </div>
   )
 }
 
 EventType.propTypes = {
-  name: PropTypes.string,
+  type: PropTypes.string,
   color: PropTypes.string
 }
 

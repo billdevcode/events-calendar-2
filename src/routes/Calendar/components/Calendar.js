@@ -7,7 +7,7 @@ import SingleRow from '../components/SingleRow'
 const Calendar = ({ open, toggleModal }) => {
   let rows = []
   for (let i = 0; i < 5; i++) {
-   rows.push(<SingleRow key={i} row={i*7} />)
+    rows.push(<SingleRow key={i} row={i * 7} />)
   }
   return (
     <div className='Calendar'>
@@ -34,7 +34,8 @@ const Calendar = ({ open, toggleModal }) => {
 }
 
 Calendar.propTypes = {
-  addingEvent: PropTypes.bool
+  open: PropTypes.bool,
+  toggleModal: PropTypes.func
 }
 
 export default Calendar

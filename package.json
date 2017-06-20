@@ -35,6 +35,7 @@
     "redux-actions": "^2.0.3",
     "redux-form": "^6.8.0",
     "redux-thunk": "^2.2.0",
+    "stylelint": "^7.11.1",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

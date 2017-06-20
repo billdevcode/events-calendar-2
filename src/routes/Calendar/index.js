@@ -11,7 +11,7 @@ export default (store) => ({
           dependencies for bundling   */
       const Calendar = require('./layouts/CalendarLayout').default
       const reducer = require('./modules/calendar').default
-      
+
       injectReducer(store, { key: 'calendar', reducer })
 
       /*  Return getComponent   */

@@ -29,7 +29,7 @@ export const editEvent = createAction(EDIT_EVENT)
 export const selectModalIsOpen = state => state.calendar.openModal
 export const selectMonthEvent = state => month => state.calendar[month]
 export const selectDateEvent = state => month => date => selectMonthEvent(state)(month)[date]
-export const selectEventTypeColor = state => type =>  {
+export const selectEventTypeColor = state => type => {
   return state.calendar.eventTypes.find(eventType => {
     if (eventType && type) {
       return eventType.type.toLowerCase() === type.toLowerCase()
@@ -48,42 +48,42 @@ export const selectEventById = state => month => date => id => {
 
 export const calendarReducer = handleActions({
   [PLACEHOLDER]: (state, action) => {
-   return { ...state }
- },
+    return { ...state }
+  },
   [TOGGLE_MODAL]: (state, action) => {
-   return {
-     ...state,
-     openModal: !state.openModal
-   }
- },
- [SUBMIT_EVENT]: (state, action) => {
-   return {
-     ...state
-   }
- },
- [ADD_NEW_EVENT]: (state, action) => {
-  const { payload } = action
-  const { date } = payload
-  const randomDate = Math.floor(Math.random() * 31 + 1)
-  return {
-    ...state,
-    june: {
-      ...state.june,
-      [date ? date : randomDate]: [...state.june[date ? date : randomDate] || [], payload]
+    return {
+      ...state,
+      openModal: !state.openModal
+    }
+  },
+  [SUBMIT_EVENT]: (state, action) => {
+    return {
+      ...state
+    }
+  },
+  [ADD_NEW_EVENT]: (state, action) => {
+    const { payload } = action
+    const randomDate = Math.floor(Math.random() * 31 + 1)
+    const { date = randomDate } = payload
+    return {
+      ...state,
+      june: {
+        ...state.june,
+        [date]: [...state.june[date] || [], payload]
+      }
+    }
+  },
+  [EDIT_EVENT]: (state, action) => {
+    return {
+      ...state
     }
   }
- },
- [EDIT_EVENT]: (state, action) => {
-  return {
-    ...state
-  }
- }
 }, {
-   eventTypes,
-   openModal: false,
-   june: {
-     '17': eventsOn17
-   }
+  eventTypes,
+  openModal: false,
+  june: {
+    '17': eventsOn17
+  }
 })
 
 export default calendarReducer

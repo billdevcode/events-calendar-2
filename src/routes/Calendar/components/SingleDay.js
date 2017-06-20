@@ -12,14 +12,14 @@ const SingleDay = ({ singleDay, dateEvents }) => {
           <Event key={index} dateEvent={dateEvent} />
         )
       })
-    }
+      }
     </td>
   )
 }
 
 SingleDay.propTypes = {
   singleDay: PropTypes.number,
-  toggleAddEvent: PropTypes.func
+  dateEvents: PropTypes.array
 }
 
 export default SingleDay
